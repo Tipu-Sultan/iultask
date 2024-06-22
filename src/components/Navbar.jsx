@@ -7,7 +7,7 @@ const Navbar = () => {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    My Application
+                    IUL TASK
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
                     <Button color="inherit" component={NavLink} to="/" exact activeClassName="active">

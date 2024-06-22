@@ -18,10 +18,15 @@ const TransactionsTable = ({ transactions, page, setPage }) => {
     return `${description.slice(0, 30)}...`;
   };
 
+  // Function to determine background color for table rows
+  const getRowColor = (index) => {
+    return index % 2 === 0 ? '#f0f0f0' : '#ffffff'; // Alternate row colors
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead>
+        <TableHead style={{ backgroundColor: '#3f51b5', color: '#fff' }}>
           <TableRow>
             <TableCell>Title</TableCell>
             <TableCell>Description</TableCell>
@@ -31,8 +36,8 @@ const TransactionsTable = ({ transactions, page, setPage }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {transactions.map((transaction) => (
-            <TableRow key={transaction.id}>
+          {transactions.map((transaction, index) => (
+            <TableRow key={transaction.id} style={{ backgroundColor: getRowColor(index) }}>
               <TableCell>{transaction.title}</TableCell>
               <TableCell>
                 {truncateDescription(transaction.description, transaction.id)}
